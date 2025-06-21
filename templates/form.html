@@ -1,0 +1,31 @@
+<!-- templates/form.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tax Refund Estimator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <h2 class="mb-4">🧾 Australian Tax Refund Estimator</h2>
+
+        {% if error %}
+            <div class="alert alert-danger">{{ error }}</div>
+        {% endif %}
+
+        <form action="/result" method="POST">
+            <div class="mb-3">
+                <label class="form-label">Gross Income ($)</label>
+                <input type="number" name="income" class="form-control" step="0.01" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Tax Withheld ($)</label>
+                <input type="number" name="withheld" class="form-control" step="0.01" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Estimate Refund</button>
+        </form>
+    </div>
+</body>
+</html>
